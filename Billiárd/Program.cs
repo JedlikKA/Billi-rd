@@ -12,12 +12,20 @@ namespace Billiárd
         {
             List<int> golyók = new List<int>();
             Kezdés(golyók);
-            int Leesik = Leesősorsoló(golyók);
-            Kiíró(golyók);
-            //for (int i = 0; i < golyók.Count; i++)
-            //{
-            //    Console.WriteLine(golyók[i]);
-            //}
+            int Leesik;
+            do
+            {
+                
+                Leesik=Leesősorsoló(golyók);
+                Kiíró(golyók);
+                Console.WriteLine(Leesik);
+                Console.ReadKey();
+            } while (golyók.Count!=8);
+            if (golyók.Count==8)
+            {
+                Console.WriteLine("Nyertél.");
+            }
+            
             Console.ReadKey();
         }
 
@@ -27,13 +35,14 @@ namespace Billiárd
             {
                 Console.Write($"{item} ");
             }
+            Console.WriteLine();
         }
 
         static int Leesősorsoló(List<int> golyók)
         {
             Random gép = new Random();
             int szám = gép.Next(golyók.Count);
-            golyók.Remove(szám);
+            golyók.Remove(golyók[szám]);
             return golyók[szám];
             
         }
