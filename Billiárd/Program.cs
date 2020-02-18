@@ -10,6 +10,7 @@ namespace Billiárd
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
